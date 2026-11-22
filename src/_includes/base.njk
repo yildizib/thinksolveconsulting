@@ -1,0 +1,56 @@
+{% set d = copy[lang] %}
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8fafc">
+  <meta name="description" content="{{ d.description }}">
+  <meta name="keywords" content="{{ d.keywords }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ d.title }}">
+  <meta property="og:description" content="{{ d.description }}">
+  <meta property="og:url" content="https://thinksolveconsulting.com{{ page.url }}">
+  <meta property="og:image" content="https://thinksolveconsulting.com/assets/social.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ d.title }}">
+  <meta name="twitter:description" content="{{ d.description }}">
+  <meta name="twitter:image" content="https://thinksolveconsulting.com/assets/social.svg">
+  <link rel="canonical" href="https://thinksolveconsulting.com{{ page.url }}">
+  <link rel="alternate" hreflang="en" href="https://thinksolveconsulting.com/">
+  <link rel="alternate" hreflang="tr" href="https://thinksolveconsulting.com/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://thinksolveconsulting.com/">
+  <link rel="stylesheet" href="/assets/site.css">
+  <title>{{ d.title }}</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">{{ d.skip }}</a>
+  <div class="site-shell">
+    <header class="site-header container">
+      <a class="brand" href="{{ d.home }}" aria-label="Think & Solve Different Solutions — {{ d.homeLabel }}">
+        <span class="brand-name">Think &amp; Solve Different Solutions <span class="brand-legal">(FZE)</span></span>
+      </a>
+      <nav class="primary-nav" aria-label="{{ d.navLabel }}">
+        <a href="#services">{{ d.navServices }}</a>
+        <a href="#approach">{{ d.navApproach }}</a>
+        <a href="#about">{{ d.navAbout }}</a>
+        <a class="nav-contact" href="#contact">{{ d.navContact }}</a>
+      </nav>
+      <div class="language-switch" aria-label="Language">
+        <a href="/" hreflang="en" lang="en" {% if lang == 'en' %}aria-current="page"{% endif %}>EN</a>
+        <span aria-hidden="true">/</span>
+        <a href="/tr/" hreflang="tr" lang="tr" {% if lang == 'tr' %}aria-current="page"{% endif %}>TR</a>
+      </div>
+    </header>
+
+    <main id="main">{{ content | safe }}</main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div><strong>Think & Solve Different Solutions (FZE)</strong><span>{{ d.footerLocation }}</span></div>
+        <small>© {{ d.footerYear }} Think & Solve Different Solutions (FZE)</small>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
